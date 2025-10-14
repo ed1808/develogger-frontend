@@ -1,0 +1,198 @@
+@import "tailwindcss";
+
+@theme {
+  /* Night */
+  --color-night-100: #d0d0d0;
+  --color-night-200: #a1a1a1;
+  --color-night-300: #727272;
+  --color-night-400: #434343;
+  --color-night-500: #151515;
+  --color-night-600: #101010;
+  --color-night-700: #0c0c0c;
+  --color-night-800: #080808;
+  --color-night-900: #040404;
+
+  /* Raisin Black */
+  --color-raisin-black-100: #d2cbd9;
+  --color-raisin-black-200: #a597b4;
+  --color-raisin-black-300: #78658c;
+  --color-raisin-black-400: #4b3f58;
+  --color-raisin-black-500: #1f1a24;
+  --color-raisin-black-600: #18151c;
+  --color-raisin-black-700: #120f15;
+  --color-raisin-black-800: #0c0a0e;
+  --color-raisin-black-900: #060507;
+
+  /* Platinum */
+  --color-platinum-100: #fbfbfb;
+  --color-platinum-200: #f7f7f7;
+  --color-platinum-300: #f3f3f3;
+  --color-platinum-400: #efefef;
+  --color-platinum-500: #eaeaea;
+  --color-platinum-600: #bcbcbc;
+  --color-platinum-700: #8d8d8d;
+  --color-platinum-800: #5e5e5e;
+  --color-platinum-900: #2f2f2f;
+
+  /* Silver */
+  --color-silver-900: #232323;
+  --color-silver-800: #464646;
+  --color-silver-700: #6a6a6a;
+  --color-silver-600: #8d8d8d;
+  --color-silver-500: #b0b0b0;
+  --color-silver-400: #c0c0c0;
+  --color-silver-300: #d0d0d0;
+  --color-silver-200: #dfdfdf;
+  --color-silver-100: #efefef;
+
+  /* Verdigris */
+  --color-verdigris-900: #002224;
+  --color-verdigris-800: #004447;
+  --color-verdigris-700: #00666b;
+  --color-verdigris-600: #00888f;
+  --color-verdigris-500: #00adb5;
+  --color-verdigris-400: #00e9f5;
+  --color-verdigris-300: #38f5ff;
+  --color-verdigris-200: #7af8ff;
+  --color-verdigris-100: #bdfcff;
+
+  /* Pigment Green */
+  --color-pigment-green-900: #0f2310;
+  --color-pigment-green-800: #1e4520;
+  --color-pigment-green-700: #2e6830;
+  --color-pigment-green-600: #3d8b40;
+  --color-pigment-green-500: #4caf50;
+  --color-pigment-green-400: #6ec071;
+  --color-pigment-green-300: #93cf95;
+  --color-pigment-green-200: #b7dfb8;
+  --color-pigment-green-100: #dbefdc;
+
+  /* Amaranth */
+  --color-amaranth-900: #36060e;
+  --color-amaranth-800: #6c0d1c;
+  --color-amaranth-700: #a2132b;
+  --color-amaranth-600: #d71939;
+  --color-amaranth-500: #e94560;
+  --color-amaranth-400: #ed697f;
+  --color-amaranth-300: #f28f9f;
+  --color-amaranth-200: #f6b4bf;
+  --color-amaranth-100: #fbdadf;
+
+  /* Naples Yellow */
+  --color-naples-yellow-900: #423502;
+  --color-naples-yellow-800: #856b04;
+  --color-naples-yellow-700: #c7a006;
+  --color-naples-yellow-600: #f8cb19;
+  --color-naples-yellow-500: #fada5e;
+  --color-naples-yellow-400: #fbe27c;
+  --color-naples-yellow-300: #fce99d;
+  --color-naples-yellow-200: #fdf0be;
+  --color-naples-yellow-100: #fef8de;
+}
+
+:root {
+  font-family: "Manrope", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  font-optical-sizing: auto;
+  font-style: normal;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.manrope-200 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 200;
+}
+
+.manrope-300 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 300;
+}
+
+.manrope-400 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 400;
+}
+
+.manrope-500 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 500;
+}
+
+.manrope-600 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 600;
+}
+
+.manrope-700 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 700;
+}
+
+.manrope-800 {
+  font-family: "Manrope", sans-serif;
+  font-weight: 800;
+}
+
+.ibm-plex-mono-light {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 300;
+  font-style: normal;
+}
+
+.ibm-plex-mono-regular {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.ibm-plex-mono-medium {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 500;
+  font-style: normal;
+}
+
+.ibm-plex-mono-bold {
+  font-family: "IBM Plex Mono", monospace;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nav-icons button {
+  border-left: 1px solid var(--color-platinum-500);
+}
+
+.nav-icons button:last-of-type {
+  border-left: 1px solid var(--color-platinum-500);
+  border-right: 1px solid var(--color-platinum-500);
+}
+
+nav button span {
+  box-shadow: 4px 4px 0 var(--color-raisin-black-400);
+}
+
+.active {
+  background-color: var(--color-platinum-500);
+  color: var(--color-night-500);
+}
+
+.active:hover span {
+  display: none;
+}
+
+.app-menu {
+  transition: transform 200ms ease;
+  transform: translateY(0%);
+}
+
+.app-menu.show {
+  transform: translateY(-100%);
+}

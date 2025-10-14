@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/src/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;500;700&family=Manrope:wght@200..800&display=swap" rel="stylesheet">
+    <title>Develogger</title>
+  </head>
+  <body class="relative bg-night-500">
+    <main class="h-dvh flex flex-col overflow-hidden">
+      <section class="h-[calc(100%-60px)]"></section>
+      <nav class="h-[60px] relative">
+        <div class="absolute flex flex-col w-[550px] h-[calc(100dvh-75px)] bg-night-500 border border-platinum-500 z-0 left-0 top-0 app-menu">
+          <section class="h-1/2">
+            <h2 class="p-4 sticky top-0 bg-raisin-black-500 border-b border-b-platinum-500 manrope-700">Recent notes</h2>
+          </section>
+          <section class="h-[calc(50%-60px)]">
+            <h2 class="p-4 sticky top-0 bg-raisin-black-500 border-y border-b-platinum-500 manrope-700">Next reminders</h2>
+          </section>
+          <section class="h-[60px] flex justify-between border-t border-t-platinum-500">
+            <div class="pl-4 h-full flex items-center">
+              <span class="pointer-events-none">Edward Rodriguez</span>
+            </div>
+            <div class="h-full">
+              <button class="group relative flex flex-col items-center justify-center h-full px-7.5 border-l border-l-platinum-500 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="logout">
+                <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-night-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-out-icon lucide-log-out">
+                  <path d="m16 17 5-5-5-5"/>
+                  <path d="M21 12H9"/>
+                  <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                </svg>
+                <span class="px-3 py-1 border border-silver-600 absolute invisible bg-raisin-black-500 group-hover:visible group-hover:translate-x-24 text-xs ibm-plex-mono-light">Close session</span>
+              </button>
+            </div>
+          </section>
+        </div>
+        <div class="relative h-full flex justify-between border border-platinum-500 bg-night-500 z-10">
+          <div class="h-full">
+            <button class="group relative flex flex-col items-center justify-center h-full px-7.5 border-r border-r-platinum-500 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="menu">
+              <svg xmlns="http://www.w3.org/2000/svg" class="group-hover:text-night-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu-icon lucide-menu">
+                <path d="M4 5h16"/>
+                <path d="M4 12h16"/>
+                <path d="M4 19h16"/>
+              </svg>
+              <span class="px-3 py-1 border border-silver-600 absolute invisible bg-raisin-black-500 group-hover:visible group-hover:-translate-y-14 text-xs ibm-plex-mono-light">Menu</span>
+            </button>
+          </div>
+          <div class="nav-icons h-full flex">
+            <button class="group relative flex flex-col items-center justify-center h-full px-4 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="notes">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="group-hover:text-night-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sticky-note-icon lucide-sticky-note">
+                <path d="M16 3H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V8Z"/>
+                <path d="M15 3v4a2 2 0 0 0 2 2h4"/>
+              </svg>
+              <span class="px-3 py-1 border border-silver-600 absolute invisible bg-raisin-black-500 group-hover:visible group-hover:-translate-y-14 text-xs ibm-plex-mono-light">Notes</span>
+            </button>
+            <button class="group relative flex flex-col items-center justify-center h-full px-4 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="reminders">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="group-hover:text-night-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-warning-icon lucide-message-square-warning">
+                <path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z"/>
+                <path d="M12 15h.01"/>
+                <path d="M12 7v4"/>
+              </svg>
+              <span class="px-3 py-1 border border-silver-600 absolute invisible bg-raisin-black-500 group-hover:visible group-hover:-translate-y-14 text-xs ibm-plex-mono-light">Reminders</span>
+            </button>
+            <button class="group relative flex flex-col items-center justify-center h-full px-4 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="codes">
+              <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="group-hover:text-night-500" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-code-icon lucide-code">
+                <path d="m16 18 6-6-6-6"/>
+                <path d="m8 6-6 6 6 6"/>
+              </svg>
+              <span class="px-3 py-1 border border-silver-600 absolute invisible bg-raisin-black-500 group-hover:visible group-hover:-translate-y-14 text-xs ibm-plex-mono-light">Codes</span>
+            </button>
+          </div>
+          <div class="h-full px-6.5 flex flex-col items-center justify-center border-l border-l-platinum-500">
+            <span id="date-display" class="text-sm ibm-plex-mono-regular">-</span>
+          </div>
+        </div>
+      </nav>
+    </main>
+  </body>
+  <script type="module" src="/src/main.ts"></script>
+</html>
