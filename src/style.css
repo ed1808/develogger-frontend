@@ -107,6 +107,10 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+:host {
+  will-change: transform;
+}
+
 .manrope-200 {
   font-family: "Manrope", sans-serif;
   font-weight: 200;
@@ -191,8 +195,19 @@ nav button span {
 .app-menu {
   transition: transform 200ms ease;
   transform: translateY(0%);
+  z-index: 0;
 }
 
 .app-menu.show {
   transform: translateY(-100%);
+  z-index: 999;
+}
+
+app-window {
+  position: absolute;
+  transition: box-shadow 200ms ease;
+}
+
+app-window.active-window {
+  box-shadow: 6px 6px 0 var(--color-verdigris-600);
 }

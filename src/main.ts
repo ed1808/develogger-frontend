@@ -2,8 +2,12 @@ import { getDate } from "./ui/getDate";
 import { hideMainMenu, showMainMenu } from "./ui/mainMenu";
 import { setActive } from "./ui/setActive";
 
+import './ui/components/app-window';
+import { capitalize } from "./utils/capitalize";
+
 document.addEventListener('DOMContentLoaded', () => {
   let isMenuVisible = false;
+  let zCounter = 10;
 
   const displayDate = document.querySelector<HTMLSpanElement>('#date-display');
   const buttons = document.querySelectorAll<HTMLButtonElement>('nav button');
@@ -27,6 +31,10 @@ document.addEventListener('DOMContentLoaded', () => {
     btn.addEventListener('click', () => {
       buttons.forEach(button => button.classList.remove('active'));
       setActive(btn);
+
+      if (btn.id !== 'menu' && btn.id !== 'logout') {
+        createWindow(btn.id);
+      }
     });
   });
 
@@ -45,4 +53,26 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     }
   });
-})
+
+  document.addEventListener('mousedown', (e) => {
+    const win = (e.target as HTMLElement).closest('app-window');
+
+    if (!win) return;
+
+    document.querySelectorAll('app-window.active-window').forEach(el => el.classList.remove('active-window'));
+
+    win.classList.add('active-window');
+    win.style.zIndex = (++zCounter).toString();
+  });
+});
+
+function createWindow(elemId: string) {
+  const win = document.createElement('app-window') as any;
+
+  win.init(`${capitalize(elemId)}`);
+  
+  win.style.top = '250px';
+  win.style.left = '250px';
+
+  document.querySelector('#desktop')?.appendChild(win);
+}

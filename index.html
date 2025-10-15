@@ -12,9 +12,9 @@
   </head>
   <body class="relative bg-night-500">
     <main class="h-dvh flex flex-col overflow-hidden">
-      <section class="h-[calc(100%-60px)]"></section>
+      <section class="relative h-[calc(100%-60px)]" id="desktop"></section>
       <nav class="h-[60px] relative">
-        <div class="absolute flex flex-col w-[550px] h-[calc(100dvh-75px)] bg-night-500 border border-platinum-500 z-0 left-0 top-0 app-menu">
+        <div class="absolute flex flex-col w-[550px] h-[calc(100dvh-75px)] bg-night-500 border border-platinum-500 left-0 top-0 app-menu">
           <section class="h-1/2">
             <h2 class="p-4 sticky top-0 bg-raisin-black-500 border-b border-b-platinum-500 manrope-700">Recent notes</h2>
           </section>
@@ -23,7 +23,7 @@
           </section>
           <section class="h-[60px] flex justify-between border-t border-t-platinum-500">
             <div class="pl-4 h-full flex items-center">
-              <span class="pointer-events-none">Edward Rodriguez</span>
+              <span class="pointer-events-none" id="username">Edward Rodriguez</span>
             </div>
             <div class="h-full">
               <button class="group relative flex flex-col items-center justify-center h-full px-7.5 border-l border-l-platinum-500 hover:bg-verdigris-500 transition-colors ease-linear cursor-pointer" id="logout">
