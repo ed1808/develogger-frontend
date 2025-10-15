@@ -1,12 +1,12 @@
+import Vector2d from "../../core/Vector2d";
+
 export class AppWindow extends HTMLElement {
     private shadow: ShadowRoot;
     private isDragging: boolean = false;
-    private offsetX: number = 0;
-    private offsetY: number = 0;
-    private posX: number = 100;
-    private posY: number = 100;
-    private pendingX: number = 100;
-    private pendingY: number = 100;
+    private pos: Vector2d = new Vector2d(0, 0);
+    private init_pos: Vector2d = new Vector2d(0, 0);
+    private diff_pos: Vector2d = new Vector2d(0, 0);
+    private mouse_pos: Vector2d = new Vector2d(0, 0);
     private animationFrame: number | null = null;
     private windowTitle: string | null = null;
 
@@ -24,21 +24,22 @@ export class AppWindow extends HTMLElement {
 
         window.addEventListener('mouseup', this.stopDrag.bind(this));
         window.addEventListener('mousemove', this.handleMovement.bind(this));
-
-        this.updatePosition();
     }
 
     init(title: string) {
         this.windowTitle = title;
         this.render();
+        const random_pos: Vector2d = new Vector2d(Math.floor(Math.random() * window.innerWidth), Math.floor(Math.random() * window.innerHeight));
+        this.init_pos = new Vector2d(random_pos.x, random_pos.y);
+        this.setPosition(this.init_pos);
     }
 
     startDrag(e: MouseEvent) {
-        this.offsetX = e.clientX - this.posX;
-        this.offsetY = e.clientY - this.posY;
-
         this.shadow.querySelector('.toolsbar')!.classList.add('grabbing');
 
+        const rect = this.getClientRects()[0];
+        this.mouse_pos = new Vector2d(e.clientX, e.clientY);
+        this.init_pos = new Vector2d(this.mouse_pos.x - rect.x, this.mouse_pos.y - rect.y);
         this.isDragging = true;
     }
 
@@ -50,8 +51,8 @@ export class AppWindow extends HTMLElement {
     handleMovement(e: MouseEvent) {
         if (!this.isDragging) return;
 
-        this.pendingX = e.clientX - this.offsetX;
-        this.pendingY = e.clientY - this.offsetY;
+        this.mouse_pos = new Vector2d(e.clientX, e.clientY);
+        this.diff_pos = new Vector2d(this.mouse_pos.x - this.init_pos.x, this.mouse_pos.y - this.init_pos.y);
 
         if (this.animationFrame === null) {
             this.animationFrame = requestAnimationFrame(this.updatePosition.bind(this));
@@ -61,12 +62,13 @@ export class AppWindow extends HTMLElement {
     updatePosition() {
         this.animationFrame = null;
 
-        if (this.posX !== this.pendingX || this.posY !== this.pendingY) {
-            this.posX = this.pendingX;
-            this.posY = this.pendingY;
+        this.pos = new Vector2d(this.diff_pos.x, this.diff_pos.y);
+        this.setPosition(this.pos);
+    }
 
-            this.style.transform = `translate(${this.posX}px, ${this.posY}px)`;
-        }
+    setPosition(pos: Vector2d) {
+        this.style.left = `${pos.x}px`;
+        this.style.top = `${pos.y}px`;
     }
 
     render(): void {
